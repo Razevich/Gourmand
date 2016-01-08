@@ -1,4 +1,4 @@
 class Step < ActiveRecord::Base
-  belongs_to :note
+  has_many   :notes
   belongs_to :recipe
 end
