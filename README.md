@@ -1,1 +1,1 @@
-# Gourmand
+Gourmand is the one stop shop for a chef. An app made for iOS by students at Dev Boot Camp for their final project.
