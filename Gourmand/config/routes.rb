@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   get "/recipe" => "recipe#new",               defaults: {format: :json}
   post "/recipe" => "recipe#create",           defaults: {format: :json}
   get "/recipe/:id" => "recipe#show",          defaults: {format: :json}
+  # get "/cook_book/:cook_book_id/recipe/:id" => "",   defaults: {format: :json}
+  # get "/cook_book" =>
+  # post "/cook_book" =>
+
 end

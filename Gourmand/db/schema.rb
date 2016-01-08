@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20160108165403) do
 
   create_table "cook_books", force: :cascade do |t|
     t.integer  "kitchen_id"
-    t.text     "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160108165403) do
 
   create_table "shopping_lists", force: :cascade do |t|
     t.integer  "kitchen_id"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
