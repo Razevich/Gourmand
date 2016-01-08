@@ -6,12 +6,13 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      render json: @user
-
-    else
-      render "users/new"
+    respond to |format| do
+      if @user.save
+        session[:user_id] = @user.id
+        format.json { render action: 'show', status: :created, location: @player }
+      else
+        format.json { render json: @player.errors, status: :unprocessable_entity }
+      end
     end
   end
 
