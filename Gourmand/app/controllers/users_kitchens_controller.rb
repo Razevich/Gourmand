@@ -1,0 +1,2 @@
+class UsersKitchenController < ApplicationController
+end
