@@ -4,7 +4,6 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer  :user_id
       t.integer  :cook_book_id
       t.text     :name
-      t.text     :image_url
 
       t.timestamps null: false
     end
