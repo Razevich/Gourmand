@@ -1154,3 +1154,42 @@ Migrating to CreateUsersKitchens (20160108165403)
   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (5.5ms)[0m  INSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "token") VALUES (?, ?, ?, ?, ?, ?)  [["username", "Colin"], ["email", "Razevich.c@gmail.com"], ["password_digest", "$2a$10$a4F5Z8Jf22.qUJ5vW69jqOxliCFzPLncblAF5fMvznhNydeoflnAC"], ["created_at", "2016-01-09 19:08:18.608177"], ["updated_at", "2016-01-09 19:08:18.608177"], ["token", "0f3aa98c43134c77832a3e6c47d7be79"]]
   [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO "kitchens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "potbelly"], ["created_at", "2016-01-09 19:51:47.781389"], ["updated_at", "2016-01-09 19:51:47.781389"]]
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "shopping_lists" ("kitchen_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["kitchen_id", 1], ["created_at", "2016-01-09 19:51:47.858947"], ["updated_at", "2016-01-09 19:51:47.858947"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cook_books" ("kitchen_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["kitchen_id", 1], ["created_at", "2016-01-09 19:51:47.881979"], ["updated_at", "2016-01-09 19:51:47.881979"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mCookBook Load (0.4ms)[0m  SELECT "cook_books".* FROM "cook_books" WHERE "cook_books"."kitchen_id" = ?  [["kitchen_id", 1]]
+  [1m[36mCookBook Load (0.3ms)[0m  [1mSELECT  "cook_books".* FROM "cook_books"  ORDER BY "cook_books"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "recipes" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "chicken_parm"], ["created_at", "2016-01-09 19:52:59.935400"], ["updated_at", "2016-01-09 19:52:59.935400"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "recipes" SET "cook_book_id" = ?, "updated_at" = ? WHERE "recipes"."id" = ?  [["cook_book_id", 1], ["updated_at", "2016-01-09 19:53:05.859633"], ["id", 1]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes" WHERE "recipes"."cook_book_id" = ?  [["cook_book_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "notes" ("body", "created_at", "updated_at") VALUES (?, ?, ?)  [["body", "THis was horrible"], ["created_at", "2016-01-09 19:53:49.788515"], ["updated_at", "2016-01-09 19:53:49.788515"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "notes" SET "recipe_id" = ?, "updated_at" = ? WHERE "notes"."id" = ?[0m  [["recipe_id", 1], ["updated_at", "2016-01-09 19:53:53.708267"], ["id", 1]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."recipe_id" = ?[0m  [["recipe_id", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from irb_binding at (irb):13)
+  [1m[35mKitchen Load (0.3ms)[0m  SELECT  "kitchens".* FROM "kitchens" WHERE "kitchens"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mShoppingList Load (0.2ms)[0m  SELECT "shopping_lists".* FROM "shopping_lists" WHERE "shopping_lists"."kitchen_id" = ?  [["kitchen_id", 1]]
+  [1m[36mIngredient Load (1.9ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."shopping_list_id" = ?[0m  [["shopping_list_id", 1]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "shopping_lists" WHERE "shopping_lists"."id" = ?  [["id", 1]]
+  [1m[36mCookBook Load (0.1ms)[0m  [1mSELECT "cook_books".* FROM "cook_books" WHERE "cook_books"."kitchen_id" = ?[0m  [["kitchen_id", 1]]
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes" WHERE "recipes"."cook_book_id" = ?  [["cook_book_id", 1]]
+  [1m[36mStep Load (2.3ms)[0m  [1mSELECT "steps".* FROM "steps" WHERE "steps"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mNote Load (0.1ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "notes" WHERE "notes"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "recipes" WHERE "recipes"."id" = ?  [["id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "cook_books" WHERE "cook_books"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "kitchens" WHERE "kitchens"."id" = ?  [["id", 1]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT "notes".* FROM "notes"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT  "notes".* FROM "notes"  ORDER BY "notes"."id" ASC LIMIT 1
