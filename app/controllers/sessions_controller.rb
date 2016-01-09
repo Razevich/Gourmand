@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
     @user = User.find_by_username(params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.user_id
-      redirect_to user_path(@user)
+      status: :ok
     else
-      render "sessions/new"
+      status: :unprocessable_entity # error 422 code
     end
   end
 
   def destroy
     session.delete(:user_id)
-    redirect_to root_path
+    status: :no_content #204 code
   end
 
 end
