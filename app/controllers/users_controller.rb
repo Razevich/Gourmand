@@ -6,7 +6,7 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    respond to |format| do
+    respond_to |format| do
       if @user.save
         session[:user_id] = @user.id
         format.json {render action: 'show', status: :created, location: @user}
