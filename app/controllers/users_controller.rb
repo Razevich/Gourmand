@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def new
     @user = User.new
@@ -6,7 +6,7 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    respond_to |format| do
+    respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
         format.json {render action: 'show', status: :created, location: @user}
@@ -14,6 +14,7 @@ class UserController < ApplicationController
         "whoops"
       end
     end
+  end
 
   def show
     @user = User.find_by(id: params[:id])
