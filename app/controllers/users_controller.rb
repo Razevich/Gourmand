@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  respond_to :json
 
   def new
     @user = User.new
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.json {render action: 'show', status: :created, location: @user}
+        format.json {render json: 'show', status: :created, location: @user}
       else
         "whoops"
       end
