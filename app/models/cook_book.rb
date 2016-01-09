@@ -1,6 +1,5 @@
 class CookBook < ActiveRecord::Base
-  belongs_to :user
   belongs_to :kitchen
-  has_many :recipes
+  has_many :recipes, dependent: :destroy
 
 end

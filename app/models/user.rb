@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :cook_books
   has_many :recipes
   has_many :notes
   has_many :users_kitchens
