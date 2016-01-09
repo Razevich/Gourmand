@@ -8,15 +8,30 @@ Rails.application.routes.draw do
   get "/user/:id" => "users#show",                                defaults: {format: :json}
   get "/user" => "users#new",                                     defaults: {format: :json}
   post "/user" => "users#create",                                 defaults: {format: :json}
+  #registration ^
 
   get "/recipe/id" => "recipes#show",                             defaults: {format: :json}
-  post "/recipe/:recipe_id/steps" => "recipes#steps",             defaults: {format: :json}
+  post "/recipe/:id/steps" => "recipes#steps",                    defaults: {format: :json}
+  #add a new step to recipe ^
+  post "/recipe/:id/ingredients" => "recipe#ingredients",         defaults: {format: :json}
 
   get "/cook_book/:id" => "cook_books#show",                      defaults: {format: :json}
-  post "/cook_book/:cook_book_id/recipe" => "recipes#create",     defaults: {format: :json}
-  delete "/cook_book/:id" => "cook_books#destroy",                defaults: {format: :json}
+  #No need for a post, created with a kitchen.
+
+  get "/shopping_list/:id" => "shopping_lists#show",              defaults: {format: :json}
+  #No need for a post, created with a kitchen.
+  post "/shopping_list/:id/ingredients" => "shopping_list#ingredients", defaults: {format: :json}
+
+  get "/kitchen/:id" => "kitchens#show",                          defaults: {format: :json}
+  post "/user/:id/kitchen/" => "kitcens#create",                  defaults: {format: :json}
+  delete "/kitchen/:id" => "kitchens#destroy",                    defaults: {format: :json}
+  # This will trash EVERYTHING but a user. Dependent destroy everywhere
 
   get "/note/:id" => "notes#show",                                defaults: {format: :json}
   post "/recipe/:recipe_id/notes" => "notes#recipes",             defaults: {format: :json}
   post "/step/:step_id/notes" => "notes#steps",                   defaults: {format: :json}
+
+  get "/step/:id" => "steps#show",                                defaults: {format: :json}
+  get "/step" => "steps#new",                                     defaults: {format: :json}
+  post "/recipe/:id/steps" => "steps#create",                     defaults: {format: :json}
 end

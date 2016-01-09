@@ -1193,3 +1193,6 @@ DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`
   [1m[35mNote Load (0.3ms)[0m  SELECT "notes".* FROM "notes"
   [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
   [1m[35mNote Load (0.2ms)[0m  SELECT  "notes".* FROM "notes"  ORDER BY "notes"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.5ms)[0m  INSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "token") VALUES (?, ?, ?, ?, ?, ?)  [["username", "Test"], ["email", "test"], ["password_digest", "$2a$10$bZnbvOnTg67n69lZoE1h4uL5U/aTOLWdYPXfw3hqxaU2BTvvQVOOe"], ["created_at", "2016-01-09 22:26:54.910141"], ["updated_at", "2016-01-09 22:26:54.910141"], ["token", "0388ce6bdcea42199be2f4c17c2e54a8"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m

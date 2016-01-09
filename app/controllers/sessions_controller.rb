@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
-    head :no_content #204 code
+    status: :no_content #204 code
   end
 
 end

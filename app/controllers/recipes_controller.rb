@@ -11,16 +11,21 @@ class RecipeController < ApplicationController
   end
 
   def steps
-    @recipie = Recipe.find_by(id: params[:recipe_id])
+    @recipie = Recipe.find_by(id: params[:id])
     render json: @recipe.steps, status: :ok
   end
 
-  def edit
-    @recipe = Recipe.find_by(id: params[:id])
+  def ingredients
+    @recipie = Recipe.find_by(id: params[:id])
+    render json: @recipe.ingredients, status: :ok
   end
 
-  def update
-    @recipe = Recipe.find_by(id: params[:id])
-    @recipe.update(name: params[:name])
-  end
+  # def edit
+  #   @recipe = Recipe.find_by(id: params[:id])
+  # end
+
+  # def update
+  #   @recipe = Recipe.find_by(id: params[:id])
+  #   @recipe.update(name: params[:name])
+  # end
 end

@@ -1,5 +1,11 @@
 class StepController < ApplicationController
+
   def new
+  end
+
+  def show
+    @step = Step.find_by(id: params[:id])
+    render json: @step, status: :ok
   end
 
   def create
@@ -9,7 +15,7 @@ class StepController < ApplicationController
       @recipe.steps << @step
       render json: @step, status: :ok
     else
-
+      status: 400
     end
   end
 end
