@@ -13,7 +13,6 @@ class UsersController < ApplicationController
       else
         "whoops"
       end
-    end
   end
 
   def show
