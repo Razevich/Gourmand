@@ -2,7 +2,8 @@ class KitchenController < ApplicationController
 
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
-    render json: @kitchen, status: :ok
+    render json: @kitchen
+    # , status: :ok
   end
 
   def create
@@ -10,7 +11,8 @@ class KitchenController < ApplicationController
     @kitchen = Kitchen.new(kitchen_params)
       if @kitchen.save
         @user << @kitchen
-        render json: @kitchen, status: :ok
+        render json: @kitchen
+        # , status: :ok
       else
         # status: 400
         @errors = errors.full_messages

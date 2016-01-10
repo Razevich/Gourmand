@@ -5,7 +5,8 @@ class StepController < ApplicationController
 
   def show
     @step = Step.find_by(id: params[:id])
-    render json: @step, status: :ok
+    render json: @step
+    # , status: :ok
   end
 
   def create
@@ -13,7 +14,8 @@ class StepController < ApplicationController
     @step = Step.new(params[:description])
     if @step.save
       @recipe.steps << @step
-      render json: @step, status: :ok
+      render json: @step
+      # , status: :ok
     else
       # status: 400
       @errors = errors.full_messages

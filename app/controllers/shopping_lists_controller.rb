@@ -6,7 +6,8 @@ class ShoppingListController < ApplicationController
 
   def ingredients
     @shopping_list = ShoppingList.find_by(id: params[:id])
-    render json: @shopping_list.ingredients, status: :ok
+    render json: @shopping_list.ingredients
+    # , status: :ok
   end
 
 end
