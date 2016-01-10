@@ -8,9 +8,10 @@ class SessionsController < ApplicationController
     @user = User.find_by_username(params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.user_id
-      status: :ok
+      # status: :ok
     else
-      status: :unprocessable_entity # error 422 code
+      "whoops"
+      # status: :unprocessable_entity # error 422 code
     end
   end
 
