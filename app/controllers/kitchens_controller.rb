@@ -12,14 +12,15 @@ class KitchenController < ApplicationController
         @user << @kitchen
         render json: @kitchen, status: :ok
       else
-        status: 400
+        # status: 400
+        @errors = errors.full_messages
       end
   end
 
   def delete
     @kitchen = Kitchen.find_by(id: params[:id])
     @kitchen.destroy
-    status: :no_content
+    # status: :no_content
   end
 
   private
