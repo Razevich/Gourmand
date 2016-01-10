@@ -15,7 +15,8 @@ class StepController < ApplicationController
       @recipe.steps << @step
       render json: @step, status: :ok
     else
-      status: 400
+      # status: 400
+      @errors = errors.full_messages
     end
   end
 end

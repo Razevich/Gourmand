@@ -6,17 +6,18 @@ class RecipeController < ApplicationController
     if @recipe.save
       render json: @recipe, status: :ok
     else
-      status: 400
+      # status: 400
+      @errors = errors.full_messages
     end
   end
 
   def steps
-    @recipie = Recipe.find_by(id: params[:id])
+    @recipe = Recipe.find_by(id: params[:id])
     render json: @recipe.steps, status: :ok
   end
 
   def ingredients
-    @recipie = Recipe.find_by(id: params[:id])
+    @recipe = Recipe.find_by(id: params[:id])
     render json: @recipe.ingredients, status: :ok
   end
 

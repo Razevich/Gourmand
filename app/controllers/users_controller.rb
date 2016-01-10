@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       if @user.save
         render json: @user, status: :ok
       else
-        status: 400
+        # status: 400
+        @errors = errors.full_messages
       end
   end
 

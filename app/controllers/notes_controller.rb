@@ -12,7 +12,8 @@ class NoteController < ApplicationController
       @recipe.notes << @note
       render json: @recipe, status: :ok
     else
-      status: 400
+      @errors = errors.full_messages
+      # status: 400
     end
   end
 
@@ -23,7 +24,8 @@ class NoteController < ApplicationController
       @step.notes << @note
       render json: @step, status: :ok
     else
-      status: 400
+      @errors = errors.full_messages
+      # status: 400
     end
   end
 end
