@@ -4,7 +4,7 @@ class RecipeController < ApplicationController
     @cook_book = CookBook.find_by(id: params[:cook_book_id])
     @recipe.new(user_id: current_user.id, cook_book_id: @cook_book.id, name: params[:name] )
     if @recipe.save
-      render json: @recipe
+      render :json => {recipe: @recipe, user_token: current_user.token}
       # , status: :ok
     else
       # status: 400

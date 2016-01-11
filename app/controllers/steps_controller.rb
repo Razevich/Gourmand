@@ -5,7 +5,7 @@ class StepController < ApplicationController
 
   def show
     @step = Step.find_by(id: params[:id])
-    render json: @step
+    render :json => {step: @step, user_token: current_user.token}
     # , status: :ok
   end
 
@@ -14,7 +14,7 @@ class StepController < ApplicationController
     @step = Step.new(params[:description])
     if @step.save
       @recipe.steps << @step
-      render json: @step
+      render :json => {step: @step, user_token: current_user.token}
       # , status: :ok
     else
       # status: 400
