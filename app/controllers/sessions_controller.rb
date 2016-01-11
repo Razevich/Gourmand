@@ -8,6 +8,9 @@ class SessionsController < ApplicationController
     @user = User.find_by_username(params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.user_id
+
+      render json: @user
+      render json: @user.kitchens
       # status: :ok
     else
       "whoops"
