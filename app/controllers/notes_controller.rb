@@ -1,4 +1,4 @@
-class NoteController < ApplicationController
+class NotesController < ApplicationController
 
   def show
     @step = Step.find_by(id: params[:id])

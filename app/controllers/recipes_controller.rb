@@ -1,4 +1,4 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
 
   def create
     @cook_book = CookBook.find_by(id: params[:cook_book_id])
@@ -21,6 +21,8 @@ class RecipeController < ApplicationController
   def ingredients
     @recipe = Recipe.find_by(id: params[:id])
     render json: @recipe.ingredients
+    render json: @recipe
+    render json: @recipe.steps
     # , status: :ok
   end
 

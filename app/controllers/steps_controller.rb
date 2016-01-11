@@ -1,4 +1,4 @@
-class StepController < ApplicationController
+class StepsController < ApplicationController
 
   def new
   end

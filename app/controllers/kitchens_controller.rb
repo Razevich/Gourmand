@@ -1,4 +1,4 @@
-class KitchenController < ApplicationController
+class KitchensController < ApplicationController
 
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
