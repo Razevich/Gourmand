@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   respond_to :json
+  wrap_parameters include: User.attribute_names + [:password]
 
   def new
     @user = User.new
