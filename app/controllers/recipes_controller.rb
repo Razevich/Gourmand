@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
 
   def ingredients
     @recipe = Recipe.find_by(id: params[:id])
-    render json: {@recipe.ingredients, @recipe, @recipe.steps}
+    render :json => {@recipe.ingredients, @recipe, @recipe.steps}
     # , status: :ok
   end
 
