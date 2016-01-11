@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    p params
+
     @user = User.find_by_username(params[:username])
-    if @user && @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:sessions][:password])
       p params
       render json: @user
       render json: @user.kitchens
