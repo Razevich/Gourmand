@@ -1,4 +1,4 @@
-class CookBookController < ApplicationController
+class CookBooksController < ApplicationController
 
 
   def show

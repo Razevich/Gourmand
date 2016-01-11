@@ -1,4 +1,4 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
 
   def create
     @cook_book = CookBook.find_by(id: params[:cook_book_id])

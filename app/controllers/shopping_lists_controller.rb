@@ -1,4 +1,4 @@
-class ShoppingListController < ApplicationController
+class ShoppingListsController < ApplicationController
 
   def show
     @shopping_list = ShoppingList.find_by(id: params[:id])
