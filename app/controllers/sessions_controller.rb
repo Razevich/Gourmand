@@ -6,13 +6,11 @@ class SessionsController < ApplicationController
 
   def create
     p "Username:"
-    p params[:username][1]
+    p params[:username]
     p "params:"
     p params
     p "Password"
     p params[:password]
-    p "Password[1]"
-    p params[:password][1]
 
     @user = User.find_by_username(params[:username])
     if @user && @user.authenticate(params[:password])
