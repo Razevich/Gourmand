@@ -6,9 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_username(params[:username])
+    p params
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.user_id
-
       render json: @user
       render json: @user.kitchens
       # status: :ok

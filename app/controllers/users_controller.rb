@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       else
         # status: 400
         @errors = errors.full_messages
+        render json: @errors
       end
   end
 
