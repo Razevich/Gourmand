@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160112193436) do
 
-  create_table "cookbooks", force: :cascade do |t|
+  create_table "cook_books", force: :cascade do |t|
     t.integer  "kitchen_id"
     t.text     "name"
     t.datetime "created_at", null: false
