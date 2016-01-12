@@ -1254,3 +1254,14 @@ Migrating to CreateUsersKitchens (20160108165403)
   [1m[36mUser Load (2.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
   [1m[35mRecipe Load (2.7ms)[0m  SELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?  [["user_id", 1]]
   [1m[36mKitchen Load (2.2ms)[0m  [1mSELECT "kitchens".* FROM "kitchens" INNER JOIN "users_kitchens" ON "kitchens"."id" = "users_kitchens"."kitchen_id" WHERE "users_kitchens"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeleteSteps (20160112193436)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeleteSteps (20160112193436)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "steps"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160112193436"]]
+  [1m[36m (71.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
