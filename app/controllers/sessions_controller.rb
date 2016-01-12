@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  wrap_parameters include: User.attribute_names + [:password]
 
   def new
 
@@ -6,20 +7,17 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_username(params[:username])
-    p params
     if @user && @user.authenticate(params[:password])
-      render json: @user
-      render json: @user.kitchens
-      # status: :ok
+      render :json => {user: @user, kitchens: @user.kitchens}
+
     else
-      render json: "Invalid username or password"
-      # status: :unprocessable_entity # error 422 code
+      @errors = errors.full_messages
+      render json: @errors
     end
   end
 
   def destroy
-    session.delete(:user_id)
-    # status: :no_content #204 code
+
   end
 
 end
