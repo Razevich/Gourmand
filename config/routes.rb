@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post "/recipe/:id/ingredients" => "recipe#ingredients",         defaults: {format: :json}
 
   get "/cook_book/:id" => "cook_books#show",                      defaults: {format: :json}
+  get "/cook_book/:id/search" => "cook_books#show"                defaults: {format: :json}
   #No need for a post, created with a kitchen.
 
   get "/shopping_list/:id" => "shopping_lists#show",              defaults: {format: :json}
@@ -25,6 +26,10 @@ Rails.application.routes.draw do
   get "/kitchen/:id" => "kitchens#show",                          defaults: {format: :json}
   post "/user/:id/kitchen/" => "kitcens#create",                  defaults: {format: :json}
   delete "/kitchen/:id" => "kitchens#destroy",                    defaults: {format: :json}
+
+  # Josh
+  get "/kictchen/search" => "kitchen#search",                     defaults: {format: :json}
+
   # This will trash EVERYTHING but a user. Dependent destroy everywhere
 
   get "/note/:id" => "notes#show",                                defaults: {format: :json}
