@@ -7,10 +7,9 @@ class KitchensController < ApplicationController
   end
 
   def create
-    @user = User.find_by(token: params[:token])
     @kitchen = Kitchen.new(kitchen_params)
       if @kitchen.save
-        @user << @kitchen
+        current_user.kitchens << @kitchen
         render :json => {kitchen: @kitchen, user_token: current_user.token}
         # , status: :ok
       else
