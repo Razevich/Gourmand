@@ -16,6 +16,12 @@ class KitchensController < ApplicationController
       end
   end
 
+  def search
+    search_term = params[:kitchen]
+    @kitchens = Kitchen.where("search_term LIKE (?)", "%#{search_term}%")
+    render :json => {kitchens: @kitchens}
+  end
+
   def delete
     @kitchen = Kitchen.find_by(id: params[:id])
     @kitchen.destroy

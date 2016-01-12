@@ -6,4 +6,10 @@ class CookBooksController < ApplicationController
     render :json => {recipes: @cook_book.recipes, cook_book: @cook_book}
   end
 
+  def search
+    search_term = params[:recipe]
+    @recipes = Recipe.where("first_name LIKE (?)", "%#{search_term}%"
+    render json: @recipes
+  end
+
 end
