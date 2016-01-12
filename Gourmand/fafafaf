@@ -1,0 +1,131 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ */
+'use strict';
+
+var React = require('react-native');
+var Login = require('./App/Components/Login')
+
+var {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  NavigatorIOS,
+  ListView,
+} = React;
+
+var REQUEST_URL = "https://gourmand.herokuapp.com/cook_book/1";
+
+class Gourmand extends React.Component{
+  render() {
+      console.log("Hi!")
+    return (
+      <NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+        title: 'Login',
+        component: Login,
+      }}
+      />
+    )
+  }
+}
+
+// var Gourmand = React.createClass({
+//   getInitialState: function() {
+//     return {
+//       <NavigatorIOS
+//         initialRoute={{
+//           styles={styles.container},
+//           title: 'Login',
+//           component: Login
+
+//         }} />
+//       // dataSource: new ListView.DataSource({
+//       //   rowHasChanged: (row1, row2) => row1 !== row2,
+//       // }),
+//       // loaded: false,
+//     };
+//   },
+//   componentDidMount: function() {
+//     this.fetchData();
+//   },
+//   fetchData: function() {
+//     fetch(REQUEST_URL)
+//       .then((response) => response.json())
+//       .then((responseData) => {
+//         console.log(responseData);
+//         this.setState({
+//           dataSource: this.state.dataSource.cloneWithRows(responseData),
+//           loaded: true,
+//         });
+//       })
+//     .catch((error) => {
+//       console.warn(error);
+//     });
+//   },
+//   render: function() {
+//     if (!this.state.loaded) {
+//       return this.renderLoadingView();
+//     }
+//
+//     return (
+//       <ListView
+//         dataSource={this.state.dataSource}
+//         renderRow={this.renderCookbook}
+//         style={styles.listView}
+//       />
+//     );
+//   },
+//
+//   renderLoadingView: function() {
+//     return (
+//       <View style={styles.container}>
+//         <Text>
+//           Loading recipes...
+//         </Text>
+//       </View>
+//     );
+//   },
+//   renderCookbook: function(recipe) {
+//     return (
+//       <View style={styles.container}>
+//         <View style={styles.rightContainer}>
+//           <Text style={styles.title}>{recipe.name}</Text>
+//         </View>
+//       </View>
+//     );
+//   },
+// });
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  title : {
+    fontSize: 20,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  listView: {
+    paddingTop: 20,
+    backgroundColor: '#F5FCFF',
+  },
+});
+
+AppRegistry.registerComponent('Gourmand', () => Gourmand);
