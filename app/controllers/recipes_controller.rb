@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
       render :json => {recipe: @recipe, user_token: current_user.token}
     else
       @errors = errors.full_messages
-      render :json @errors
+      render json: @errors
     end
   end
 
