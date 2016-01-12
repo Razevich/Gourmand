@@ -2,20 +2,17 @@ class KitchensController < ApplicationController
 
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
-    render json: @kitchen
-    # , status: :ok
+    render :json => {kitchen: @kitchen, user_token: current_user.token}
   end
 
   def create
-    @user = User.find_by(id: params[:id])
     @kitchen = Kitchen.new(kitchen_params)
       if @kitchen.save
-        @user << @kitchen
-        render json: @kitchen
-        # , status: :ok
+        current_user.kitchens << @kitchen
+        render :json => {kitchen: @kitchen, user_token: current_user.token}
       else
-        # status: 400
         @errors = errors.full_messages
+        render json: @errors
       end
   end
 
@@ -28,7 +25,15 @@ class KitchensController < ApplicationController
   def delete
     @kitchen = Kitchen.find_by(id: params[:id])
     @kitchen.destroy
-    # status: :no_content
+    render :json => {user_token: current_user.token}
+  end
+
+  def join
+    @kitchen = Kitchen.find_by(id: params[:id])
+    if current_user
+      current_user.kitchens << @kitchen
+      render :json => {user_token: current_user.token}
+    end
   end
 
   private
