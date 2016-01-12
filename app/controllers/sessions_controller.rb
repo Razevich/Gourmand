@@ -6,12 +6,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    p "Username:"
-    p params[:username]
-    p "params:"
-    p params
-    p "Password"
-    p params[:password]
 
     @user = User.find_by_username(params[:username])
     if @user && @user.authenticate(params[:password])
@@ -19,7 +13,6 @@ class SessionsController < ApplicationController
 
       # status: :ok
     else
-      p params
       render json: "Nope"
       # status: :unprocessable_entity # error 422 code
     end
