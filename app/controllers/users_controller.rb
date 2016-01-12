@@ -10,17 +10,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         render json: @user
-        # , status: :ok
       else
         # status: 400
         @errors = errors.full_messages
+        render json: @errors
       end
   end
 
   def show
     @user = User.find_by(id: params[:id])
     render json: @user
-    # , status: :ok
   end
 
   private

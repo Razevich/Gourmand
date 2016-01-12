@@ -4,26 +4,21 @@ class RecipesController < ApplicationController
     @cook_book = CookBook.find_by(id: params[:cook_book_id])
     @recipe.new(user_id: current_user.id, cook_book_id: @cook_book.id, name: params[:name] )
     if @recipe.save
-      render json: @recipe
-      # , status: :ok
+      render :json => {recipe: @recipe, user_token: current_user.token}
     else
-      # status: 400
       @errors = errors.full_messages
+      render :json @errors
     end
   end
 
   def steps
     @recipe = Recipe.find_by(id: params[:id])
-    render json: @recipe.steps
-    # , status: :ok
+    render :json => {recipe: @recipe, steps: @recipe.steps}
   end
 
   def ingredients
     @recipe = Recipe.find_by(id: params[:id])
-    render json: @recipe.ingredients
-    render json: @recipe
-    render json: @recipe.steps
-    # , status: :ok
+    render :json => {ingredients: @recipe.ingredients, recipe: @recipe, steps: @steps}
   end
 
   # def edit
