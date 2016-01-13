@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+
+    render "index.html.erb"
   end
 
   def new
@@ -14,6 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         render json: @user
+
+        p current_user
       else
         # status: 400
         @errors = errors.full_messages
