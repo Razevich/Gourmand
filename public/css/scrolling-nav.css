@@ -28,7 +28,7 @@ html {
 }
 
 /* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
-The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
+The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children
 of those sections to manage the look and feel of the site. */
 
 .intro-section {
@@ -57,4 +57,30 @@ of those sections to manage the look and feel of the site. */
     padding-top: 150px;
     text-align: center;
     background: #eee;
+}
+
+#about {
+  background-image: url("http://static1.courchnet.com/image_uploader/photos/53/large/cab9-snowboarding-school-meribel-valley-111.jpg");
+  height: 100%;
+  width:  100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+#services {
+    background-image: url("http://startupship.org/wp-content/uploads/2015/02/59-e1423431288998-1000x600.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.teacher-pad {
+    padding-top: 10em;
+    padding-bottom: 3em;
+    background-color: #009900;
+    text-align: center;
+}
+
+.teacher-pad p {
+    font-size: 2.5em;
 }
