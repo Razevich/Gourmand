@@ -3,7 +3,6 @@ require 'securerandom'
 class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
-  validates_associated :books, :notes, :users_kitchens
 
   has_many :recipes
   has_many :notes
