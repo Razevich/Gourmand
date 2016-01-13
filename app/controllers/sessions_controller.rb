@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   wrap_parameters include: User.attribute_names + [:password]
 
   def new
-
   end
 
   def create
