@@ -4,7 +4,8 @@ class KitchensController < ApplicationController
 
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
-    render :json => {kitchen: @kitchen, user_token: current_user.token}
+    @users = @kitchen.users
+    render :json => {kitchen: @kitchen, users: @users, user_token: current_user.token}
   end
 
   def create
