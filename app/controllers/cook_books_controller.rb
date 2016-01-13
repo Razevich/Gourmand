@@ -1,4 +1,6 @@
 class CookBooksController < ApplicationController
+  respond_to :json
+  wrap_parameters include: CookBook.attribute_names + [:name]
 
 
   def show

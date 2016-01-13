@@ -1,4 +1,6 @@
 class KitchensController < ApplicationController
+  respond_to :json
+  wrap_parameters include: Kitchen.attribute_names + [:name]
 
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
