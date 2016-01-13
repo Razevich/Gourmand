@@ -1501,3 +1501,36 @@ ActionController::RoutingError (No route matches [GET] "/users"):
   Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
   Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (86.4ms)
+
+
+Started GET "/users" for ::1 at 2016-01-13 10:51:26 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as JSON
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined local variable or method `articles_path' for #<#<Class:0x007fc0138757f0>:0x007fc0128bb008>):
+    4: </head>
+    5: <body>
+    6:   <!-- When submit the form, the view rendered will be the index view of our articles resource -->
+    7:   <%= form_tag(articles_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+    8:     <div class="input-append">
+    9:       <%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Articles" %>
+   10:       <!-- In order to have the "search" icon int the button, we need to use plain HTML instead
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__2416563067372101137_70231470627160'
+  app/controllers/users_controller.rb:8:in `index'
+
+
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.9ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (41.4ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/farmanp/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (97.2ms)
