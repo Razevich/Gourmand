@@ -36,9 +36,4 @@ Rails.application.routes.draw do
 
   get "/note/:id" => "notes#show",                                defaults: {format: :json}
   post "/recipe/:recipe_id/notes" => "notes#recipes",             defaults: {format: :json}
-  post "/step/:step_id/notes" => "notes#steps",                   defaults: {format: :json}
-
-  get "/step/:id" => "steps#show",                                defaults: {format: :json}
-  get "/step" => "steps#new",                                     defaults: {format: :json}
-  post "/recipe/:id/steps" => "steps#create",                     defaults: {format: :json}
 end
