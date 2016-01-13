@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  respond_to :json
+  wrap_parameters include: Recipe.attribute_names + [:name, :step]
 
   def create
     @cook_book = CookBook.find_by(id: params[:cook_book_id])
@@ -7,13 +9,8 @@ class RecipesController < ApplicationController
       render :json => {recipe: @recipe, user_token: current_user.token}
     else
       @errors = errors.full_messages
-      render :json @errors
+      render json: @errors
     end
-  end
-
-  def steps
-    @recipe = Recipe.find_by(id: params[:id])
-    render :json => {recipe: @recipe, steps: @recipe.steps}
   end
 
   def ingredients

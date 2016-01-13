@@ -1,9 +1,22 @@
 class KitchensController < ApplicationController
+  respond_to :json
+  wrap_parameters include: Kitchen.attribute_names + [:name]
+
+  def search
+    search_term = params[:kitchen]
+    @kitchens = Kitchen.where("name LIKE (?)", "%#{query}%")
+    render :json => {kitchens: @kitchens}
+  end
 
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
     @users = @kitchen.users
-    render :json => {kitchen: @kitchen, users: @users, user_token: current_user.token}
+
+    @usernames = []
+    @users.each do |user|
+      @usernames << user.username
+    end
+    render :json => {kitchen: @kitchen, cook_book_id: @kitchen.cook_books.first.id, users: @usernames, user_token: current_user.token}
   end
 
   def create

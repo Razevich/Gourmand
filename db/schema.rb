@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108165403) do
+ActiveRecord::Schema.define(version: 20160113194738) do
 
   create_table "cook_books", force: :cascade do |t|
     t.integer  "kitchen_id"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20160108165403) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "kitchens", ["name"], name: "index_kitchens_on_name"
 
   create_table "notes", force: :cascade do |t|
     t.integer  "recipe_id"
@@ -58,7 +60,11 @@ ActiveRecord::Schema.define(version: 20160108165403) do
     t.text     "image_url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "step"
+    t.text     "ingredient"
   end
+
+  add_index "recipes", ["name"], name: "index_recipes_on_name"
 
   create_table "shopping_lists", force: :cascade do |t|
     t.integer  "kitchen_id"
@@ -67,20 +73,13 @@ ActiveRecord::Schema.define(version: 20160108165403) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "steps", force: :cascade do |t|
-    t.integer  "recipe_id"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.text     "username"
     t.text     "email"
     t.text     "password_digest"
-    t.text     "token"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "token"
   end
 
   create_table "users_kitchens", force: :cascade do |t|

@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         render json: @user
+
+        p current_user
       else
         # status: 400
         @errors = errors.full_messages
