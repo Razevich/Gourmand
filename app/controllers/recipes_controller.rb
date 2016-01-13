@@ -13,6 +13,22 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search
+
+    @found_recipes = []
+    @recipes = Recipe.where("name LIKE (?)", "%#{query}%")
+    @cook_book = CookBook.find(params[:id])
+    @cook_book.recipes.each do |recipe|
+        if @recipes.name == recipe.name
+          @found_recipes << recipe
+        end
+        @found_recipe
+      end
+
+    search_term = params[:recipe]
+    render :json => {found_recipe: @found_recipe}
+  end
+
   def ingredients
     @recipe = Recipe.find_by(id: params[:id])
     render :json => {ingredients: @recipe.ingredients, recipe: @recipe, steps: @steps}
