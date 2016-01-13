@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112193436) do
+ActiveRecord::Schema.define(version: 20160113153743) do
 
   create_table "cook_books", force: :cascade do |t|
     t.integer  "kitchen_id"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20160112193436) do
     t.text     "image_url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "step"
+    t.text     "ingredient"
   end
 
   create_table "shopping_lists", force: :cascade do |t|
