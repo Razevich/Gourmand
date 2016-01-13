@@ -3,13 +3,23 @@ class UsersController < ApplicationController
   wrap_parameters include: User.attribute_names + [:password, :username, :email]
 
   def index
-    @users = User.all
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = []
+    end
 
     render "index.html.erb"
   end
 
   def new
     @user = User.new
+  end
+
+  def search
+    search_term = params[:kitchen]
+    @kitchens = User.where("search_term LIKE (?)", "%#{search_term}%")
+    render :json => {kitchens: @kitchens}
   end
 
   def create

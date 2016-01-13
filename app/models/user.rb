@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
   has_secure_password
   before_create :set_auth_token
 
+  def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    where("username like ?", "%#{query}%")
+  end
+
   private
     def set_auth_token
       return if token.present?
