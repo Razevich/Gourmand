@@ -11,12 +11,16 @@ class KitchensController < ApplicationController
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
     @users = @kitchen.users
-
     @usernames = []
+    @recipe_names = []
+    @kitchen.cook_books.first.recipes.each do |recipe|
+      @recipe_names << recipe.name
+    end
+
     @users.each do |user|
       @usernames << user.username
     end
-    render :json => {kitchen: @kitchen, cook_book_id: @kitchen.cook_books.first.id, users: @usernames, user_token: current_user.token}
+    render :json => {kitchen: @kitchen, cook_book_id: @kitchen.cook_books.first.id, users: @usernames, recipe: @recipe_names, user_token: current_user.token}
   end
 
   def create
