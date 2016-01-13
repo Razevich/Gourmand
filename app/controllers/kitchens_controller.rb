@@ -59,7 +59,7 @@ class KitchensController < ApplicationController
     array.each do |i|
       i = Hash[i.map {|key, value| [key, value]}]
     end
-  return array
+  return i
   end
 
   private
