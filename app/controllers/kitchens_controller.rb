@@ -22,7 +22,7 @@ class KitchensController < ApplicationController
     @users.each do |user|
       @usernames << user.username
     end
-    render :json => {kitchen: @kitchen, cook_book_id: @kitchen.cook_books.first.id, users: @usernames, recipe: @recipe_names, user_token: current_user.token}
+    render :json => {kitchen: @kitchen, cook_book_id: @kitchen.cook_books.first.id, users: @usernames, recipe: @recipe_names, recipe_id: @recipe_ids, user_token: current_user.token}
   end
 
   def create
