@@ -39,5 +39,5 @@ Rails.application.routes.draw do
   get "/note/:id" => "notes#show",                                defaults: {format: :json}
   post "/recipe/:recipe_id/notes" => "notes#recipes",             defaults: {format: :json}
 
-  get "/cook_book/:id/recipes/search" => "recipes#search"         defaults: {format: :json}
+  get "/cook_book/:id/recipes/search" => "recipes#search",         defaults: {format: :json}
 end
