@@ -1,12 +1,21 @@
 require 'securerandom'
 
 class User < ActiveRecord::Base
+  validates :email, presence: true, uniqueness: true
+  validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+  validates_associated :books, :notes, :users_kitchens
+
   has_many :recipes
   has_many :notes
   has_many :users_kitchens
   has_many :kitchens, through: :users_kitchens
   has_secure_password
   before_create :set_auth_token
+
+    def self.search(query)
+      # where(:title, query) -> This would return an exact match of the query
+      where("username like ?", "%#{query}%")
+    end
 
   private
     def set_auth_token

@@ -2,12 +2,6 @@ class UsersController < ApplicationController
   respond_to :json
   wrap_parameters include: User.attribute_names + [:password, :username, :email]
 
-  def index
-    @users = User.all
-
-    render "index.html.erb"
-  end
-
   def new
     @user = User.new
   end

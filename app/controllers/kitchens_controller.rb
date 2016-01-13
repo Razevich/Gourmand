@@ -2,6 +2,12 @@ class KitchensController < ApplicationController
   respond_to :json
   wrap_parameters include: Kitchen.attribute_names + [:name]
 
+  def search
+    search_term = params[:kitchen]
+    @kitchens = Kitchen.where("name LIKE (?)", "%#{query}%")
+    render :json => {kitchens: @kitchens}
+  end
+
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
     @users = @kitchen.users
@@ -17,12 +23,6 @@ class KitchensController < ApplicationController
         @errors = errors.full_messages
         render json: @errors
       end
-  end
-
-  def search
-    search_term = params[:kitchen]
-    @kitchens = Kitchen.where("search_term LIKE (?)", "%#{search_term}%")
-    render :json => {kitchens: @kitchens}
   end
 
   def delete
