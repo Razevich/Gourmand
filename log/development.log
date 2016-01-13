@@ -1842,6 +1842,11 @@ Started GET "/" for ::1 at 2016-01-13 14:17:38 -0600
 Processing by SessionsController#new as HTML
   Rendered sessions/new.html.erb within layouts/application (0.0ms)
 Completed 200 OK in 4ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+<<<<<<< HEAD
+  [1m[36mKitchen Load (2.2ms)[0m  [1mSELECT  "kitchens".* FROM "kitchens"  ORDER BY "kitchens"."id" ASC LIMIT 1[0m
+  [1m[35mCookBook Load (2.2ms)[0m  SELECT "cook_books".* FROM "cook_books" WHERE "cook_books"."kitchen_id" = ?  [["kitchen_id", 2]]
+  [1m[36mRecipe Load (2.2ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE "recipes"."cook_book_id" = ?[0m  [["cook_book_id", 2]]
+=======
 
 
 Started GET "/" for ::1 at 2016-01-13 14:45:09 -0600
@@ -3051,3 +3056,4 @@ Started GET "/" for ::1 at 2016-01-13 15:03:55 -0600
 Processing by SessionsController#new as HTML
   Rendered sessions/new.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 4ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+>>>>>>> 9d49061a98790916bc02ea866a0a46e4b748d7e6

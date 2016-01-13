@@ -12,11 +12,11 @@ class KitchensController < ApplicationController
     @kitchen = Kitchen.find_by(id: params[:id])
     @users = @kitchen.users
     @usernames = []
-
     @recipe_names = []
-
+    @recipe_ids = []
     @kitchen.cook_books.first.recipes.each do |recipe|
       @recipe_names << recipe.name
+      @recipe_ids << recipe.id
     end
 
     @users.each do |user|
