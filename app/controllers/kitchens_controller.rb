@@ -11,8 +11,10 @@ class KitchensController < ApplicationController
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
     @users = @kitchen.users
+
     @usernames = []
     @recipe_array = []
+
     @kitchen.cook_books.first.recipes.each do |recipe|
       @recipe_array << convert_table(recipe)
     end
@@ -48,23 +50,11 @@ class KitchensController < ApplicationController
     end
   end
 
- def convert_table(data)
-    array = []
-    counter = 1
-      until counter == data.length
-        array << data[0].zip(data[counter])
-        counter +=1
-      end
-
-    array.each do |i|
-      i = Hash[i.map {|key, value| [key, value]}]
-    end
-  return i
-  end
-
   private
 
   def kitchen_params
     params.require(:kitchen).permit(:name)
   end
 end
+
+
