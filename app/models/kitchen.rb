@@ -28,23 +28,37 @@ class Kitchen < ActiveRecord::Base
     self.cook_books.create(kitchen_id: self.id)
   end
 
-  def convert_table(data, kitchen_recipes)
-    p "Test data before the table"
-    p data
+  def recipe_names
     array = []
-    counter = 1
-      until counter == kitchen_recipes.length
-        p "Test data"
-        p data
-        array << data.id.zip(data.name)
-        counter +=1
-        p data "Test data after the conversion"
-      end
+    self.cook_books.first.recipes.each do |recipe|
+      array << recipe.name
+    end
+    return array
+  end
+
+  def recipe_ids
+    array = []
+    self.cook_books.first.recipes.each do |recipe|
+      array << recipe.id
+    end
+    return array
+  end
+
+  def user_names
+    array = []
+    self.users.each do |user|
+      array << user
+    end
+    return array
+  end
+
+
+  def convert_table(ids, names)
+    array = ids.zip(names)
 
     array.each do |i|
       i = Hash[i.map {|key, value| [key, value]}]
     end
     return i
   end
-
 end
