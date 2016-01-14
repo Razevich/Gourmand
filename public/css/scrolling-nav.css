@@ -61,16 +61,12 @@ of those sections to manage the look and feel of the site. */
 
 #about {
   background-image: url("http://static1.courchnet.com/image_uploader/photos/53/large/cab9-snowboarding-school-meribel-valley-111.jpg");
-  height: 100%;
-  width:  100%;
-  background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.8;
 }
 
 #services {
     background-image: url("http://startupship.org/wp-content/uploads/2015/02/59-e1423431288998-1000x600.jpg");
-    background-size: contain;
     background-repeat: no-repeat;
 }
 
@@ -92,3 +88,7 @@ of those sections to manage the look and feel of the site. */
     padding-left: 5em;
     padding-right: 5em;
 }
+
+.column-left{ float: left; width: 33%; }
+.column-right{ float: right; width: 33%; }
+.column-center{ display: inline-block; width: 33%; }
