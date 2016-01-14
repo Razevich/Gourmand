@@ -86,3 +86,9 @@ of those sections to manage the look and feel of the site. */
     color: white;
     margin-top: 2em;
 }
+
+.picture {
+    display: inline;
+    padding-left: 5em;
+    padding-right: 5em;
+}
