@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :users_kitchens
   has_many :kitchens, through: :users_kitchens
+  has_many :created_kitchens, class_name: "Kitchen", foreign_key: :creator_id
   has_secure_password
   before_create :set_auth_token
 
