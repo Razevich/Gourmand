@@ -1,9 +1,10 @@
 class Kitchen < ActiveRecord::Base
   has_many :users_kitchens
   has_many :users, through: :users_kitchens
+  belongs_to :creator, class_name: "User"
+
   has_many :shopping_lists, dependent: :destroy
   has_many :cook_books, dependent: :destroy
-  belongs_to :creator, class_name: "User"
   after_save :add_shopping_list, :add_cook_book
 
   def index
