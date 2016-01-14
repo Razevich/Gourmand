@@ -3057,3 +3057,5 @@ Processing by SessionsController#new as HTML
   Rendered sessions/new.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 4ms (Views: 4.3ms | ActiveRecord: 0.0ms)
 >>>>>>> 9d49061a98790916bc02ea866a0a46e4b748d7e6
+  [1m[36mKitchen Load (0.7ms)[0m  [1mSELECT  "kitchens".* FROM "kitchens"  ORDER BY "kitchens"."id" ASC LIMIT 1[0m
+  [1m[35mKitchen Load (0.2ms)[0m  SELECT "kitchens".* FROM "kitchens"

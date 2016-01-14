@@ -19,6 +19,7 @@ class KitchensController < ApplicationController
     @kitchen = Kitchen.new(kitchen_params)
       if @kitchen.save
         current_user.kitchens << @kitchen
+        current_user.save
         render :json => {kitchen: @kitchen, user_token: current_user.token}
       else
         @errors = errors.full_messages
@@ -46,3 +47,5 @@ class KitchensController < ApplicationController
     params.require(:kitchen).permit(:name)
   end
 end
+
+

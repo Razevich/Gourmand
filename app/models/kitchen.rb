@@ -54,12 +54,6 @@ class Kitchen < ActiveRecord::Base
 
 
   def convert_table(ids, names)
-    # array = []
-    # counter = 1
-    #   until counter == data.length
-    #     array << data[0].zip(data[counter])
-    #     counter += 1
-    #   end
     array = ids.zip(names)
 
     array.each do |i|

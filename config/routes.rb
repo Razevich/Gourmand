@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   # This will trash EVERYTHING but a user. Dependent destroy everywhere
 
   # Josh
-  get "/kictchen/search" => "kitchen#search",                     defaults: {format: :json}
+  get "/kitchen/search" => "kitchen#search",                     defaults: {format: :json}
 
   get "/kitchen/:id/join" => "kitchens#join",                     defaults: {format: :json}
 
