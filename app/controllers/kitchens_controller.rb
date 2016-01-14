@@ -30,7 +30,7 @@ class KitchensController < ApplicationController
       if @kitchen.save
         current_user.kitchens << @kitchen
         current_user.save
-        # @kitchen << current_user
+        @kitchen << current_user
         render :json => {kitchen: @kitchen, user_token: current_user.token}
       else
         @errors = errors.full_messages
