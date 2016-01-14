@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post "/shopping_list/:id/ingredients" => "shopping_list#ingredients", defaults: {format: :json}
 
   get "/kitchen/:id" => "kitchens#show",                          defaults: {format: :json}
-  post "/kitchen/" => "kitcens#create",                           defaults: {format: :json}
+  post "/kitchen/" => "kitchens#create",                           defaults: {format: :json}
   delete "/kitchen/:id" => "kitchens#destroy",                    defaults: {format: :json}
   # This will trash EVERYTHING but a user. Dependent destroy everywhere
 
