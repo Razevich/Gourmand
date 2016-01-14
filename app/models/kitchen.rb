@@ -28,15 +28,15 @@ class Kitchen < ActiveRecord::Base
     self.cook_books.create(kitchen_id: self.id)
   end
 
-  def self.convert_table(data)
+  def convert_table(data, kitchen_recipes)
     p "Test data before the table"
     p data
     array = []
     counter = 1
-      until counter == 2
+      until counter == kitchen_recipes.length
         p "Test data"
         p data
-        array << data[0].zip(data[counter])
+        array << data.id.zip(data.name)
         counter +=1
         p data "Test data after the conversion"
       end
