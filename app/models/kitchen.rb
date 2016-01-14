@@ -29,11 +29,16 @@ class Kitchen < ActiveRecord::Base
   end
 
   def self.convert_table(data)
+    p "Test data before the table"
+    p data
     array = []
     counter = 1
       until counter == 2
+        p "Test data"
+        p data
         array << data[0].zip(data[counter])
         counter +=1
+        p data "Test data after the conversion"
       end
 
     array.each do |i|
