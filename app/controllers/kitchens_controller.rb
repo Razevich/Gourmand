@@ -16,7 +16,7 @@ class KitchensController < ApplicationController
     @recipe_array = []
 
     @kitchen.cook_books.first.recipes.each do |recipe|
-      @recipe_array << convert_table(recipe)
+      @recipe_array << Kitchen.convert_table(recipe)
     end
 
     @users.each do |user|
