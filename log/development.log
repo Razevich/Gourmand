@@ -3610,3 +3610,10 @@ Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881
 
 
 Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d58f925b828.png" for ::1 at 2016-01-14 11:41:23 -0600
+
+
+Started GET "/" for ::1 at 2016-01-14 13:58:31 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (257.9ms)
+Completed 200 OK in 287ms (Views: 285.7ms | ActiveRecord: 0.0ms)
