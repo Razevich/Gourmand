@@ -27,4 +27,19 @@ class Kitchen < ActiveRecord::Base
   def add_cook_book
     self.cook_books.create(kitchen_id: self.id)
   end
+
+  def self.convert_table(data)
+    array = []
+    counter = 1
+      until counter == data.length
+        array << data[0].zip(data[counter])
+        counter +=1
+      end
+
+    array.each do |i|
+      i = Hash[i.map {|key, value| [key, value]}]
+    end
+    return i
+  end
+
 end
