@@ -47,18 +47,28 @@ class Kitchen < ActiveRecord::Base
   def user_names
     array = []
     self.users.each do |user|
-      array << user
+      array << user.names
     end
     return array
   end
 
+  def to_table
+    Hash[self.cook_books.first.recipes.map{|recipe| [recipe.id, recipe.name]}]
+    # array = self.recipe_ids.zip(self.recipe_names)
+    # hash = Hash[array.map {|key, value| [key, value]}]
+    # return hash
+  end
+
+  # def as_json(opts={})
+  #   {
+  #     foo: "bar"
+  #   }
+  # end
 
   def convert_table(ids, names)
     array = ids.zip(names)
-
-    array.each do |i|
-      i = Hash[i.map {|key, value| [key, value]}]
-    end
-    return i
+    #take an array of 2 values, an id and a name. Convert that into a hash with key id => value name
+    hash = Hash[array.map {|key, value| [key, value]}]
+    return hash
   end
 end
