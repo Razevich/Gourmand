@@ -16,7 +16,7 @@ class KitchensController < ApplicationController
   end
 
   def create
-    @kitchen = current_user.kitchens.new(kitchen_params)
+    @kitchen = current_user.created_kitchens.new(kitchen_params)
       if @kitchen.save
         render :json => {kitchen: @kitchen, user_token: current_user.token}
       else

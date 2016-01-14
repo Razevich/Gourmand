@@ -3292,3 +3292,20 @@ Started GET "/" for ::1 at 2016-01-14 09:54:44 -0600
 Processing by SessionsController#new as HTML
   Rendered sessions/new.html.erb within layouts/application (4.7ms)
 Completed 200 OK in 31ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'Razevich.c@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at", "token") VALUES (?, ?, ?, ?, ?, ?)  [["username", "Colin"], ["email", "Razevich.c@gmail.com"], ["password_digest", "$2a$10$wUL3OQFM0HkY6XAKMchrf.qtrTuQ4zTw0Hf.CFGXJanx7rTeBeuOW"], ["created_at", "2016-01-14 16:06:24.269025"], ["updated_at", "2016-01-14 16:06:24.269025"], ["token", "6089f01859524267945713ad2e4fabd3"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mKitchen Load (2.5ms)[0m  SELECT "kitchens".* FROM "kitchens" INNER JOIN "users_kitchens" ON "kitchens"."id" = "users_kitchens"."kitchen_id" WHERE "users_kitchens"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "kitchens" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Colins kitchen"], ["created_at", "2016-01-14 16:07:00.320627"], ["updated_at", "2016-01-14 16:07:00.320627"]]
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "shopping_lists" ("kitchen_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["kitchen_id", 1], ["created_at", "2016-01-14 16:07:00.368759"], ["updated_at", "2016-01-14 16:07:00.368759"]]
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "cook_books" ("kitchen_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["kitchen_id", 1], ["created_at", "2016-01-14 16:07:00.404565"], ["updated_at", "2016-01-14 16:07:00.404565"]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "kitchens" ("name", "creator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "colins kitchen 2!"], ["creator_id", 1], ["created_at", "2016-01-14 16:17:53.448306"], ["updated_at", "2016-01-14 16:17:53.448306"]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "shopping_lists" ("kitchen_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["kitchen_id", 2], ["created_at", "2016-01-14 16:17:53.481136"], ["updated_at", "2016-01-14 16:17:53.481136"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cook_books" ("kitchen_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["kitchen_id", 2], ["created_at", "2016-01-14 16:17:53.495984"], ["updated_at", "2016-01-14 16:17:53.495984"]]
+  [1m[35m (2.6ms)[0m  commit transaction
