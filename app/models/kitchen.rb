@@ -47,7 +47,7 @@ class Kitchen < ActiveRecord::Base
   def user_names
     array = []
     self.users.each do |user|
-      array << user.names
+      array << user.username
     end
     return array
   end

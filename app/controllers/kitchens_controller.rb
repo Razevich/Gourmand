@@ -10,9 +10,7 @@ class KitchensController < ApplicationController
 
   def show
     @kitchen = Kitchen.find_by(id: params[:id])
-    @hashed_table = @kitchen.to_table
 
-    convert_table(@kitchen.recipe_ids, @kitchen.recipe_names)
 
     render :json => {kitchen: @kitchen, cook_book_id: @kitchen.cook_books.first.id, users: @kitchen.user_names, hashed_recipe: @kitchen.to_table, user_token: current_user.token}
   end
