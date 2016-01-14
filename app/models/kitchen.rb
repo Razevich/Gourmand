@@ -31,7 +31,7 @@ class Kitchen < ActiveRecord::Base
   def self.convert_table(data)
     array = []
     counter = 1
-      until counter == data.length
+      until counter == 2
         array << data[0].zip(data[counter])
         counter +=1
       end
