@@ -3916,3 +3916,117 @@ Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d
 
 
 Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881f8555cce1e8f.png" for ::1 at 2016-01-14 12:59:43 -0600
+
+
+Started GET "/" for ::1 at 2016-01-14 15:03:44 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 42ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-01-14 15:04:30 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/colin-9b8b51b4c05430bb40e7a85ac57ca66429f9aaccb2717830567b873f04e1a482.png" for ::1 at 2016-01-14 15:04:31 -0600
+
+
+Started GET "/assets/noah-bc4a0581e2af1f1d74a9db3355dd236354e989cce9f07fae18b1c506fef49620.png" for ::1 at 2016-01-14 15:04:31 -0600
+
+
+Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d58f925b828.png" for ::1 at 2016-01-14 15:04:31 -0600
+
+
+Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881f8555cce1e8f.png" for ::1 at 2016-01-14 15:04:31 -0600
+
+
+Started GET "/" for ::1 at 2016-01-14 15:07:04 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/colin-9b8b51b4c05430bb40e7a85ac57ca66429f9aaccb2717830567b873f04e1a482.png" for ::1 at 2016-01-14 15:07:04 -0600
+
+
+Started GET "/assets/noah-bc4a0581e2af1f1d74a9db3355dd236354e989cce9f07fae18b1c506fef49620.png" for ::1 at 2016-01-14 15:07:04 -0600
+
+
+Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d58f925b828.png" for ::1 at 2016-01-14 15:07:04 -0600
+
+
+Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881f8555cce1e8f.png" for ::1 at 2016-01-14 15:07:04 -0600
+
+
+Started GET "/" for ::1 at 2016-01-14 15:22:42 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 41ms (Views: 41.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/colin-9b8b51b4c05430bb40e7a85ac57ca66429f9aaccb2717830567b873f04e1a482.png" for ::1 at 2016-01-14 15:22:42 -0600
+
+
+Started GET "/assets/noah-bc4a0581e2af1f1d74a9db3355dd236354e989cce9f07fae18b1c506fef49620.png" for ::1 at 2016-01-14 15:22:42 -0600
+
+
+Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d58f925b828.png" for ::1 at 2016-01-14 15:22:42 -0600
+
+
+Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881f8555cce1e8f.png" for ::1 at 2016-01-14 15:22:42 -0600
+
+
+Started GET "/" for ::1 at 2016-01-14 15:25:29 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/colin-9b8b51b4c05430bb40e7a85ac57ca66429f9aaccb2717830567b873f04e1a482.png" for ::1 at 2016-01-14 15:25:30 -0600
+
+
+Started GET "/assets/noah-bc4a0581e2af1f1d74a9db3355dd236354e989cce9f07fae18b1c506fef49620.png" for ::1 at 2016-01-14 15:25:30 -0600
+
+
+Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881f8555cce1e8f.png" for ::1 at 2016-01-14 15:25:30 -0600
+
+
+Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d58f925b828.png" for ::1 at 2016-01-14 15:25:30 -0600
+
+
+Started GET "/" for ::1 at 2016-01-14 15:26:10 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/colin-9b8b51b4c05430bb40e7a85ac57ca66429f9aaccb2717830567b873f04e1a482.png" for ::1 at 2016-01-14 15:26:10 -0600
+
+
+Started GET "/assets/noah-bc4a0581e2af1f1d74a9db3355dd236354e989cce9f07fae18b1c506fef49620.png" for ::1 at 2016-01-14 15:26:10 -0600
+
+
+Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d58f925b828.png" for ::1 at 2016-01-14 15:26:10 -0600
+
+
+Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881f8555cce1e8f.png" for ::1 at 2016-01-14 15:26:10 -0600
+
+
+Started GET "/" for ::1 at 2016-01-14 15:26:44 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/colin-9b8b51b4c05430bb40e7a85ac57ca66429f9aaccb2717830567b873f04e1a482.png" for ::1 at 2016-01-14 15:26:44 -0600
+
+
+Started GET "/assets/noah-bc4a0581e2af1f1d74a9db3355dd236354e989cce9f07fae18b1c506fef49620.png" for ::1 at 2016-01-14 15:26:44 -0600
+
+
+Started GET "/assets/josh-5c9c6ebe0b953ea5b87ed26c7d45f6c523b58f402b6d1895579b8d58f925b828.png" for ::1 at 2016-01-14 15:26:44 -0600
+
+
+Started GET "/assets/farman-e68dd5a57db45b37c381b883a8bf5a1e1d9c22455eb38e41c881f8555cce1e8f.png" for ::1 at 2016-01-14 15:26:44 -0600
