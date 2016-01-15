@@ -41,9 +41,4 @@ Rails.application.routes.draw do
 
   get "/cook_book/:id/recipes/search" => "recipes#search",         defaults: {format: :json}
 
-
-
-  get "recipe/:recipe_id/bright" => "recipes#brightfoloshow",           defaults: {format: :json}
-
-  post "recipe/bright" => "recipes#brightfolocreate",             defaults: {format: :json}
 end
